@@ -3,6 +3,7 @@ import { NavLink, Route, Switch } from "react-router-dom";
 import axios from "axios";
 import Cast from "../components/Cast/Cast";
 import Reviews from "../components/Reviews/Reviews";
+import Button from "../components/Button/Button";
 
 
 class MovieDetails extends Component {
@@ -32,53 +33,57 @@ class MovieDetails extends Component {
             overview,
             vote_average,
             release_date,
-            redirect,
         } = this.state;
         const { match } = this.props;
         const date = `${release_date}`.substr(0, 4);
       
       return (
-        <div key={id}>
-          <div>
-            {poster_path ? (
-              <img
-                src={`https://image.tmdb.org/t/p/w300${poster_path}`}
-                alt={title} />
-            ) : (
-              <p>No photo</p>
-            )}
-          </div>
-          <div>
-            <h1>
-              {title} ({date})
-            </h1>
-            <p>User Score: {vote_average * 10}%</p>
-            <h2>Overview</h2>
-            <p>{overview}</p>
-            <h3>Genres</h3>
-            <ul>
-              {genres.map((genre) => (
-                <li key={genre.id}>{genre.name}</li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h2>Additional information</h2>
-            <ul>
-              <li>
-                <NavLink to={`${match.url}/Cast`}>Cast</NavLink>
-              </li>
-              <li>
-                <NavLink to={`${match.url}/Reviews`}>Reviews</NavLink>
-              </li>
-            </ul>
-          </div>
+        <>
+          <Button />
+          
+          <div key={id}>
+            <div>
+              {poster_path ? (
+                <img
+                  src={`https://image.tmdb.org/t/p/w300${poster_path}`}
+                  alt={title} />
+              ) : (
+                <p>No photo</p>
+              )}
+            </div>
+            <div>
+              <h1>
+                {title} ({date})
+              </h1>
+              <p>User Score: {vote_average * 10}%</p>
+              <h2>Overview</h2>
+              <p>{overview}</p>
+              <h3>Genres</h3>
+              <ul>
+                {genres.map((genre) => (
+                  <li key={genre.id}>{genre.name}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h2>Additional information</h2>
+              <ul>
+                <li>
+                  <NavLink to={`${match.url}/Cast`}>Cast</NavLink>
+                </li>
+                <li>
+                  <NavLink to={`${match.url}/Reviews`}>Reviews</NavLink>
+                </li>
+              </ul>
+            </div>
                 
-          <Switch>
-            <Route exact path={`${match.path}/Cast`} component={Cast} />
-            <Route exact path={`${match.path}/Reviews`} component={Reviews} />
-          </Switch>
-        </div>
+            <Switch>
+              <Route exact path={`${match.path}/Cast`} component={Cast} />
+              <Route exact path={`${match.path}/Reviews`} component={Reviews} />
+            </Switch>
+          </div>
+          
+        </>
       )
     }
 }

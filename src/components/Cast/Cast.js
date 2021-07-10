@@ -24,7 +24,7 @@ class Cast extends Component {
                                 {profile_path ? (
                                     <img
                                         
-                                        src={"https://image.tmdb.org/t/p/w400" + profile_path}
+                                        src={"https://image.tmdb.org/t/p/w300" + profile_path}
                                         alt={name}
                                     />
                                 ) : (
