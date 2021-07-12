@@ -4,7 +4,7 @@ import axios from "axios";
 import Cast from "../components/Cast/Cast";
 import Reviews from "../components/Reviews/Reviews";
 import Button from "../components/Button/Button";
-
+import styles from "./Movies.module.css"
 
 class MovieDetails extends Component {
     state = {
@@ -41,38 +41,39 @@ class MovieDetails extends Component {
         <>
           <Button />
           
-          <div key={id}>
-            <div>
+          <div key={id} className={styles.MovieDetails}> 
+            <div className={styles.MoviePageImgBlock}>
               {poster_path ? (
-                <img
+                <img className={styles.MoviePageImgBlock}
                   src={`https://image.tmdb.org/t/p/w300${poster_path}`}
                   alt={title} />
               ) : (
-                <p>No photo</p>
+                <p className={styles.MoviePageNoimg}>No photo</p>
               )}
             </div>
-            <div>
-              <h1>
+            <div className={styles.MoviePageBlock}>
+              <h1 className={styles.MovieTitle}>
                 {title} ({date})
               </h1>
               <p>User Score: {vote_average * 10}%</p>
-              <h2>Overview</h2>
+              <h2 className={styles.MovieTitle}>Overview</h2>
               <p>{overview}</p>
-              <h3>Genres</h3>
+              <h2 className={styles.MovieTitle}>Genres</h2>
               <ul>
                 {genres.map((genre) => (
                   <li key={genre.id}>{genre.name}</li>
                 ))}
               </ul>
             </div>
-            <div>
+            </div>
+            <div className={styles.MoviePageMenu}>
               <h2>Additional information</h2>
               <ul>
-                <li>
-                  <NavLink to={`${match.url}/Cast`}>Cast</NavLink>
+                <li className={styles.DetailsItem}>
+                  <NavLink className={styles.Details} to={`${match.url}/Cast`}>Cast</NavLink>
                 </li>
-                <li>
-                  <NavLink to={`${match.url}/Reviews`}>Reviews</NavLink>
+                <li className={styles.DetailsItem}>
+                  <NavLink className={styles.Details} to={`${match.url}/Reviews`}>Reviews</NavLink>
                 </li>
               </ul>
             </div>
@@ -81,7 +82,7 @@ class MovieDetails extends Component {
               <Route exact path={`${match.path}/Cast`} component={Cast} />
               <Route exact path={`${match.path}/Reviews`} component={Reviews} />
             </Switch>
-          </div>
+          
           
         </>
       )

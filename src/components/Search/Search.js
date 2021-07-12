@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from './SerchForm.module.css'
 
 
 class Search extends Component {
@@ -17,13 +18,13 @@ class Search extends Component {
 
     render() {
         return (
-            <form className="SearchForm" onSubmit={this.handelSubmit}>
-                <button type="submit" className="SearchForm-button">
-                    <span className="SearchForm-button-label">Search</span>
+            <form className={styles.SearchForm} onSubmit={this.handelSubmit}>
+                <button type="submit" className={styles.SerchBtn}>
+                    <span className={styles.BtnText}>Search</span>
                 </button>
 
                 <input
-                    className="SearchForm-input"
+                    className={styles.SearchFormInput}
                     type="text"
                     autoComplete="off"
                     autoFocus

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import MovieList from "../components/MovieList/MovieList";
+import styles from "./Movies.module.css"
 
 class HomePage extends Component{
     state = {
@@ -16,7 +17,7 @@ class HomePage extends Component{
     render() {
         return (
             <>
-                <ul>
+                <ul className={styles.MovieList}>
                     <MovieList movies={this.state.movies}/>
                 </ul>
             </>

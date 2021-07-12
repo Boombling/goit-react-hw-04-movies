@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import styles from "./Reviews.module.css"
 
 class Reviews extends Component {
     state = {
@@ -17,7 +18,7 @@ class Reviews extends Component {
         const { authors } = this.state;
         return (
             <>
-                <ul>
+                <ul className={styles.ReviewsList}>
                     {!authors.length ? (
                         <h2>We don't any reviews for this movie</h2>
                     ) : (

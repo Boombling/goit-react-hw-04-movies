@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import MovieList from "../components/MovieList/MovieList";
 import Search from "../components/Search/Search";
-
+import styles from "./Movies.module.css"
 
 
 class MoviesPage extends Component{
@@ -32,7 +31,7 @@ class MoviesPage extends Component{
         return (
             <>
                 <Search onSubmit={this.changeQuery} />
-                <ul>
+                <ul className={styles.MovieList}>
                     <MovieList movies={this.state.movies}/>
                 </ul>
             </>

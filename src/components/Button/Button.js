@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
 import routes from "../../routes";
+import styles from "./Button.module.css"
 
 class Button extends Component {
     onBackBtn = () => {
@@ -14,7 +15,7 @@ class Button extends Component {
 
     render() {
         return(
-            <button type="button"onClick={this.onBackBtn}>Back</button>
+            <button className={styles.ButtonBack} type="button"onClick={this.onBackBtn}>Back</button>
         )
     }
 }
