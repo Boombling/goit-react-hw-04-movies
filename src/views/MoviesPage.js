@@ -29,7 +29,6 @@ class MoviesPage extends Component{
 
     }
     render() {
-        const { match } = this.props;
         return (
             <>
                 <Search onSubmit={this.changeQuery} />
@@ -43,9 +42,3 @@ class MoviesPage extends Component{
     
 
 export default MoviesPage;
-// {this.state.movies.map(movie => (
-//                         <li key={movie.id}>
-//                             <Link to={`${match.url}/${movie.id}`}>{movie.original_title}</Link>
-//                             {/* <Link to={'/movies/${movie.id}'}>{movie.original_title}</Link> */}
-//                         </li>
-//                     ))}
